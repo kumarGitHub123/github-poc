@@ -19,8 +19,10 @@ jobs:
 
       - name: Set up Git user
         run: |
-          git config --global user.name "kumarGitHub123"
-          git config --global user.email "kumarnv.math@gmail.com"
+          #git config --global user.name "kumarGitHub123"
+          #git config --global user.email "kumarnv.math@gmail.com"
+          git config --global user.name "github-actions[bot]"
+          git config --global user.email "github-actions@github.com"
           git remote set-url origin https://x-access-token:${{ secrets.PAT_TOKEN }}@github.com/kumarGitHub123/github-poc.git
 
 
@@ -38,7 +40,7 @@ jobs:
               BRANCH_NAME="${BRANCH_PREFIX}-${i}"
               git checkout -b $BRANCH_NAME
               git push origin $BRANCH_NAME
-              echo "Created and pushed branch: $BRANCH_NAME"
+              echo "✅ Created and pushed branch: $BRANCH_NAME"
           done
 
       - name: Switch back to base branch
