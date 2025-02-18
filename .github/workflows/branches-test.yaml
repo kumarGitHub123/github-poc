@@ -40,12 +40,13 @@ jobs:
           git checkout $BASE_BRANCH
           git pull origin $BASE_BRANCH
 
-          for i in (seq 1 5); do
-           BRANCH_NAME="${BRANCH_PREFIX}-${i}"
-           git checkout $BRANCH_NAME
-           git push origin BRANCH_NAME
+          for i in $(seq 1 5); do
+              BRANCH_NAME="${BRANCH_PREFIX}-${i}"
+              git checkout $BRANCH_NAME
+              git push origin BRANCH_NAME
            
-           echo "created and pushed branch: $BRANCH_NAME "
+              echo "created and pushed branch: $BRANCH_NAME "
+              
           done
 
       - name: Switch back to base branch
