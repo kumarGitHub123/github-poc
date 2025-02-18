@@ -21,7 +21,8 @@ jobs:
         run: |
           git config --global user.name "kumarGitHub123"
           git config --global user.email "kumarnv.math@gmail.com"
-          git remote set-url origin https://x-access-token:YOUR_ACTUAL_PERSONAL_ACCESS_TOKEN@github.com/kumarGitHub123/github-poc.git
+          git remote set-url origin https://x-access-token:${{ secrets.PAT_TOKEN }}@github.com/kumarGitHub123/github-poc.git
+
 
 
       - name: Create multiple branches
@@ -37,7 +38,7 @@ jobs:
               BRANCH_NAME="${BRANCH_PREFIX}-${i}"
               git checkout -b $BRANCH_NAME
               git push origin $BRANCH_NAME
-              echo "✅ Created and pushed branch: $BRANCH_NAME"
+              echo "Created and pushed branch: $BRANCH_NAME"
           done
 
       - name: Switch back to base branch
