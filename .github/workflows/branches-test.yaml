@@ -21,7 +21,7 @@ jobs:
         run: |
           git config --global user.name "kumarGitHub123"
           git config --global user.email "kumarnv.math@gmail.com"
-          git remote set-url origin https://x-access-token:${{ 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 }}@github.com/kumarGitHub123/github-poc.git
+          git remote set-url origin https://x-access-token:YOUR_ACTUAL_PERSONAL_ACCESS_TOKEN@github.com/kumarGitHub123/github-poc.git
 
 
       - name: Create multiple branches
