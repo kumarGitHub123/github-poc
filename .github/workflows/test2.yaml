@@ -1,0 +1,39 @@
+name: Create 20 Branches
+
+on:  
+  workflow_dispatch:  # Allows manual trigger via GitHub Actions UI
+
+jobs:
+  create-branches:
+    runs-on: ubuntu-latest  # Runner environment
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v3
+        with:
+          fetch-depth: 0  # Ensures we fetch all branches
+
+      - name: Set up Git
+        run: |
+          git config --global user.name "github-actions[bot]"
+          git config --global user.email "github-actions@github.com"
+
+      - name: Create 20 branches
+        run: |
+          BASE_BRANCH="main"  # Change if your default branch is different
+          BRANCH_PREFIX="feature-branch"
+
+          git fetch origin
+          git checkout $BASE_BRANCH
+          git pull origin $BASE_BRANCH
+
+          for i in $(seq 1 20); do
+            BRANCH_NAME="${BRANCH_PREFIX}-${i}"
+            git checkout -b $BRANCH_NAME
+            git push origin $BRANCH_NAME
+            echo "Created and pushed: $BRANCH_NAME"
+          done
+
+      - name: Switch back to base branch
+        run: git checkout main
+
