@@ -36,4 +36,4 @@ jobs:
           git checkout -b new-feature-branch
           git push origin new-feature-branch
         env:
-          GITHUB_TOKEN: ${{ secrets.PAT_TOKEN }}  # Use the default GitHub token for authentication
+          GITHUB_TOKEN: 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
