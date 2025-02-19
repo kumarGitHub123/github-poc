@@ -33,3 +33,7 @@ jobs:
       - name: Multiple branches
         run: |
           echo Add other actions to build
+          git checkout -b new-feature-branch
+          git push origin new-feature-branch
+        env:
+          GITHUB_TOKEN: ${{ secrets.PAT_TOKEN }}  # Use the default GitHub token for authentication
