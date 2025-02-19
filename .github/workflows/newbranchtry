@@ -2,9 +2,8 @@ name: Checkout and Create Branch
 
 on:
   push:
-    branches: [ "main" ]
-  pull_request:
-    branches: [ "main" ]
+    branches:
+      - main  # Trigger the workflow on push to the main branch
   workflow_dispatch:  # Allows manual triggering
 
 jobs:
